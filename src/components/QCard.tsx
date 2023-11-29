@@ -8,7 +8,7 @@ interface QCardProps {
 
 const QCard = component$<QCardProps>(({ body, href, title }) => {
   return (
-    <li class="list-none flex p-px bg-slate-700 rounded-lg shadow-sm hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 transition-all duration-500">
+    <li class="list-none flex p-px bg-slate-700 rounded-lg shadow-sm hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-400 transition-all duration-500">
       <a href={href} class="w-full p-6 rounded-lg text-white opacity-80">
         <h2 class="m-0 text-xl">
           {title}
