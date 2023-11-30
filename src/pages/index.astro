@@ -1,12 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import QCard from '../components/QCard';
+
+interface CardContent {
+	href: string;
+	title: string;
+	body: string;
+}
+
+const cards: CardContent[] = [
+	{
+		body: 'Astro builds fast content sites, powerful web applications, dynamic server APIs, and everything in-between.',
+		href: 'https://astro.build/',
+		title: 'Astro'
+	},
+	{
+		body: 'Qwik is a new kind of web framework that can deliver instant loading web applications at any size or complexity.',
+		href: 'https://qwik.builder.io/',
+		title: 'Qwik'
+	},
+	{
+		body: 'PWA integrations for Vite and the ecosystem Zero-config and framework-agnostic PWA Plugin for Vite',
+		href: 'https://vite-pwa-org.netlify.app/',
+		title: 'PWA Vite Plugin'
+	},
+	{
+		body: 'Component class names to Tailwind CSS so you can make beautiful websites faster than ever.',
+		href: 'https://daisyui.com/',
+		title: 'DaisyUI'
+	},
+	{
+		body: 'Project github repository',
+		href: 'https://github.com/leandroppf/astro-qwik-study',
+		title: 'atro-qwik-study'
+	},
+	{
+		body: 'Step by step project creation',
+		href: 'https://gist.github.com/leandroppf/853f2d1c93005663a2d54707c5af3ed9',
+		title: 'Gist'
+	}
+]
+
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="m-auto p-4 w-[800px] max-w-[calc(100%_-_2rem)] text-white text-xl">
+	<main class="m-auto p-4 w-[1200px] max-w-[calc(100%_-_2rem)] text-white text-xl">
 		<svg
-			class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-56 h-auto -z-10"
+			class="absolute -top-8 left-1/2 transform -translate-x-1/2 w-56 h-auto"
 			width="495"
 			height="623"
 			viewBox="0 0 495 623"
@@ -36,36 +76,25 @@ import QCard from '../components/QCard';
 		<h1 class="text-6xl font-bold text-center mt-12 mb-32">
 			Welcome to 
 			<span class="bg-gradient-to-r from-purple-800 to-purple-400 bg-clip-text text-transparent">
-				Astro
+				Edsoma RAW
 			</span>
 		</h1>
 		<p class="mb-8 border border-solid border-purple-200 p-6 rounded-lg bg-gradient-to-r from-purple-900 to-purple-800 opacity-75">
 			To get started, open the directory 
-			<code class="text-xs font-bold text-purple-100 bg-purple-400 rounded px-2 py-1">src/pages</code>
+			<code class="text-xs font-bold text-white bg-gray-700 rounded px-2 py-1">src/pages</code>
 			 in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
 		</p>
-		<ul role="list" class="grid grid-cols-[repeat(auto-fit,_minmax(24ch,_1fr))] gap-8 p-0">
-			<QCard
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<QCard
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<QCard
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<QCard
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+		<div class="grid grid-cols-[repeat(auto-fit,_minmax(36ch,_1fr))] gap-8 p-0">
+			{
+				cards.map(({ href, title, body }) => (
+					<QCard
+						body={body}
+						href={href}
+						title={title}
+					/>
+				))
+			}
+		</div>
 	</main>
 </Layout>

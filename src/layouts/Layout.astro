@@ -10,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="font-sans bg-gradient-to-t from-gray-950 to-gray-700 h-screen">
+<html lang="en" class="font-sans h-screen">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -24,7 +24,7 @@ const { title } = Astro.props;
 		<script src="/src/pwa.ts"></script>
     { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
 	</head>
-	<body>
+	<body class="bg-gradient-to-t from-gray-950 to-gray-700">
 		<slot />
 		<ReloadPrompt />
 	</body>

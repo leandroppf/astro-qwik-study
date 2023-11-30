@@ -8,15 +8,19 @@ interface QCardProps {
 
 const QCard = component$<QCardProps>(({ body, href, title }) => {
   return (
-    <li class="list-none flex p-px bg-slate-700 rounded-lg shadow-sm hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-400 transition-all duration-500">
-      <a href={href} class="w-full p-6 rounded-lg text-white opacity-80">
-        <h2 class="m-0 text-xl">
-          {title}
-          <span>&rarr;</span>
-        </h2>
-        <p class="mt-2 mb-0">{body}</p>
-      </a>
-    </li>
+    <div class="card bg-base-content hover:bg-gradient-to-r hover:from-purple-800 hover:to-purple-400 transition-all duration-500">
+      <div class="card-body">
+        <h2 class="card-title">{title}</h2>
+
+        <p class="mb-4">{body}</p>
+
+        <div class="card-actions justify-end">
+          <a href={href} target="_blank" class="btn btn-primary">
+            Check out
+          </a>
+        </div>
+      </div>
+    </div>
   );
 });
 

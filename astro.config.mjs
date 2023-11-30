@@ -11,7 +11,7 @@ export default defineConfig({
     tailwind(),
     AstroPWA({
       registerType: "autoUpdate",
-      devOptions: { enabled: true },
+      devOptions: { enabled: false },
       workbox: {
         navigateFallback: "/index",
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],

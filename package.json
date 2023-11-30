@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@vite-pwa/astro": "^0.1.6",
+    "daisyui": "^4.4.14",
     "vite-plugin-pwa": "^0.17.2"
   }
 }
