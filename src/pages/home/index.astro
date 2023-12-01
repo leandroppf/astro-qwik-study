@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const authorization = Astro.cookies.get("authorization");
+
+if (Astro.request.method === "POST") {
+  Astro.cookies.delete("authorization");
+  return Astro.redirect("/");
+}
+
+---
+
+<Layout title='Edsoma - Login'>
+  <main class="p-4">
+    <a href="/" class="link link-info">Back</a>
+    <h1 class="text-6xl font-bold text-center mb-32">
+      Home Page
+    </h1>
+
+    <form action="/home" method="POST" class="w-full flex flex-col gap-8 items-center justify-center">
+      <span class="text-info text-2xl font-bold">
+        {['Logged in as', authorization?.value].join(' ')}
+      </span>
+
+      <button class="btn btn-primary w-36" type="submit">Logout</button>
+    </form>
+  </main>
+</Layout>

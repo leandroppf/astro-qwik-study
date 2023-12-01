@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+if (Astro.request.method === "GET") {
+  const authorization = Astro.cookies.get("authorization");
+  if (authorization) {
+    return Astro.redirect("/home");
+  }
+}
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username");
+    if (name) {
+      Astro.cookies.set("authorization", name, {
+        path: "/",
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
+      })
+      return Astro.redirect("/home");
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+<Layout title='Edsoma - Login'>
+  <main class="p-4">
+    <a href="/" class="link link-info">Back</a>
+    <h1 class="text-6xl font-bold text-center mb-32">
+      Login Page 
+    </h1>
+
+    <form action="/login" method="POST" class="inline-flex gap-4 w-full justify-center mt-12">
+      <input type="text" placeholder="Enter your name" class="input input-bordered w-full max-w-xs" name="username" required />
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </main>
+</Layout>
