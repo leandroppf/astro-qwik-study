@@ -1,0 +1,20 @@
+---
+import QCounter from "../QCounter";
+import QCounterValue from "../QCounterValue";
+
+---
+<div class="card bg-slate-700">
+  <div class="card-body">
+    
+    <p class="text-white">
+      This is an Astro component using nanoStore to get the values setted in qwik components
+    </p>
+    
+    <span id="counter-value" class="text-info"></span>
+
+    <QCounter />
+    <QCounterValue />
+  </div>
+</div>
+
+<script src="./counter.script.ts" />

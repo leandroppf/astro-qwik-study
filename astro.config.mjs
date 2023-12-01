@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import qwikdev from "@qwikdev/astro";
 import AstroPWA from "@vite-pwa/astro";
 import aws from "astro-sst";
+import { qwikReact } from "@builder.io/qwik-react/vite";
 
 import tailwind from "@astrojs/tailwind";
 
@@ -9,6 +10,9 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   output: "server",
   adapter: aws(),
+  vite: {
+    plugins: [qwikReact()],
+  },
   integrations: [
     qwikdev(),
     tailwind(),
