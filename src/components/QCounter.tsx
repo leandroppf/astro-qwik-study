@@ -1,5 +1,5 @@
 import { component$, useSignal, $, useVisibleTask$ } from "@builder.io/qwik";
-import { $count, decrement, increment } from "../store/counter";
+import { $count, decrement, increment } from "@/store/counter";
 
 const QCounter = component$(() => {
   const counterValue = useSignal($count.get());

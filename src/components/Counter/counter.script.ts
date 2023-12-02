@@ -1,5 +1,5 @@
 console.log("counterValueElement");
-import { $count } from "../../store/counter";
+import { $count } from "@/store/counter";
 const counterValueElement = document.getElementById("counter-value");
 
 if (counterValueElement) {

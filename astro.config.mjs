@@ -12,6 +12,11 @@ export default defineConfig({
   adapter: aws(),
   vite: {
     plugins: [qwikReact()],
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
   },
   integrations: [
     qwikdev(),

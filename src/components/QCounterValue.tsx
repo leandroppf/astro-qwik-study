@@ -1,7 +1,7 @@
 /** @jsxImportSource react */
 import { useStore } from "@nanostores/react";
 import { qwikify$ } from "@builder.io/qwik-react";
-import { $count } from "../store/counter";
+import { $count } from "@/store/counter";
 
 const QCounterValue = () => {
   const countValue = useStore($count);
